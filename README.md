@@ -1,12 +1,16 @@
 Para utilizar este projeto você vai precisar da versão 3.12.3 e do CURL.
 
 Estando no repositório do projeto execute:
-```python3 -m venv .venv```
-```source .venv/bin/activate```
-```python3 -m pip install -r requirements.txt```
+```
+python3 -m venv .venv
+source .venv/bin/activate
+python3 -m pip install -r requirements.txt
+```
 
 E então:
-```fastapi dev app/main.py```
+```
+fastapi dev app/main.py
+```
 
 Para vizualizar a documentação no Swagger:
 http://127.0.0.1:8000/docs
@@ -21,10 +25,14 @@ curl -X POST http://127.0.0.1:8000/todos
 ```
 
 Para listar tarefa:
-```curl -X GET http://127.0.0.1:8000/todos```
+```
+curl -X GET http://127.0.0.1:8000/todos
+```
 
 Para obter tarefa por ID:
-```curl -X GET http://127.0.0.1:8000/todos/{id}```
+```
+curl -X GET http://127.0.0.1:8000/todos/{id}
+```
 
 Para atualizar tarefa por ID:
 ```
@@ -34,4 +42,6 @@ curl -X PUT http://127.0.0.1:8000/todos/{id}
 ```
 
 Para deletar tarefa por ID:
-```curl -X DELETE http://127.0.0.1:8000/todos/{id}```
+```
+curl -X DELETE http://127.0.0.1:8000/todos/{id}
+```
