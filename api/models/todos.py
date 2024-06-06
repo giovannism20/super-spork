@@ -1,10 +1,5 @@
-from sqlalchemy import create_engine
-from sqlalchemy.orm import declarative_base
 from sqlalchemy import Column, Integer, String
-
-engine = create_engine('sqlite:///todos.db')
-
-Base = declarative_base()
+from api.database.database import Base
 
 class Todo(Base):
     __tablename__ = "todo"
@@ -15,5 +10,3 @@ class Todo(Base):
 
     def __repr__(self):
         return f"({self.id} {self.title} {self.description})"
-
-Base.metadata.create_all(engine)
