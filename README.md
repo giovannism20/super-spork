@@ -19,7 +19,7 @@ Com o processo do FastAPI executando em segundo plano é possível realizar as o
 
 Para criar tarefa:
 ```
-curl -X POST http://127.0.0.1:8000/todos  \
+curl -X POST http://127.0.0.1:8000/todos/  \
     -H 'Content-Type: application/json'  \
     -d '{
             "title":"Título da Tarefa",
@@ -29,7 +29,7 @@ curl -X POST http://127.0.0.1:8000/todos  \
 
 Para listar tarefa:
 ```
-curl -X GET http://127.0.0.1:8000/todos
+curl -X GET http://127.0.0.1:8000/todos/
 ```
 
 Para obter tarefa por ID:
