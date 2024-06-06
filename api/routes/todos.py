@@ -9,13 +9,10 @@ todo_router = APIRouter(prefix="/todos", tags=["Todo"])
 
 @todo_router.post("/")
 def create_todo(todo_data: TodoCreate, db: Session = Depends(get_db)):
-    title = todo_data.get('title')
-    description = todo_data.get('description')
-
-    if title is None or description is None:
+    if todo_data.title is None or todo_data.description is None:
         raise HTTPException(status_code=400, detail="Title and description are required")
 
-    new_todo = Todo(title=title, description=description)
+    new_todo = Todo(title=todo_data.title, description=todo_data.description)
     db.add(new_todo)
     db.commit()
     db.refresh(new_todo)
