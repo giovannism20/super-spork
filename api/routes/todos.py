@@ -32,14 +32,19 @@ def post_todo(key: int, db: Session = Depends(get_db)):
 @todo_router.put("/{key}")
 def update_todo(key: int, todo_data: TodoUpdate, db: Session = Depends(get_db)):
     todo = db.query(Todo).filter(Todo.id == key).first()
+
     if todo is None:
         raise HTTPException(status_code=404, detail="Todo not found")
 
-    for field, value in todo_data.items():
-        setattr(todo, field, value)
+    todo_dict = todo_data.dict(exclude_unset=True)
+
+    for field, value in todo_dict.items():
+        if hasattr(todo, field):
+            setattr(todo, field, value)
 
     db.commit()
     db.refresh(todo)
+
     return todo
 
 @todo_router.delete("/{key}")
